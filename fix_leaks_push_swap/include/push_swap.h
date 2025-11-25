@@ -6,7 +6,7 @@
 /*   By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 15:56:20 by aoneil            #+#    #+#             */
-/*   Updated: 2025/11/15 15:19:01 by aoneil           ###   ########.fr       */
+/*   Updated: 2025/11/25 13:25:49 by aoneil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	init_nodes_b(t_stack *a, t_stack *b);
 void	set_target_in_b(t_stack *a, t_stack *b);
 void	set_target_in_a(t_stack *a, t_stack *b);
 int		is_sorted(t_stack *stack);
-void	parse_args(t_stack **stack_a, char **av);
+void	parse_args(t_stack **stack_a, char **av, char **split);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
@@ -69,5 +69,7 @@ void	rrr(t_stack **a, t_stack **b);
 long	ft_atol(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
+void	free_split(char **split);
+void	free_and_exit_split(t_stack **stack_a, char **split);
 
 #endif

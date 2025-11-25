@@ -6,7 +6,7 @@
 /*   By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:48:06 by aoneil            #+#    #+#             */
-/*   Updated: 2025/11/15 15:18:59 by aoneil           ###   ########.fr       */
+/*   Updated: 2025/11/25 14:01:02 by aoneil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	is_sorted(t_stack *stack)
 	{
 		if (i->value > i->next->value)
 			return (0);
-		i = i-> next;
+		i = i->next;
 	}
 	return (1);
 }
 
-void	parse_args(t_stack **stack_a, char **av)
+void	parse_args(t_stack **stack_a, char **av, char **split)
 {
 	long	num;
 	int		i;
@@ -66,28 +66,12 @@ void	parse_args(t_stack **stack_a, char **av)
 	while (av[i])
 	{
 		if (not_valid_number(av[i]))
-		{
-			int j = 0;
-			while (av[j])
-				j++;
-			int k = 0;
-			while (av[k])
-			{
-				free(av[k]);
-				k++;
-			}
-			free(av);
-			free_and_exit(stack_a);
-		}
+			free_and_exit_split(stack_a, split);
 		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
-		{
-			free_and_exit(stack_a);
-		}
+			free_and_exit_split(stack_a, split);
 		if (has_duplicates(*stack_a, (int)num))
-		{
-			free_and_exit(stack_a);
-		}
+			free_and_exit_split(stack_a, split);
 		append_node(stack_a, (int)num);
 		i++;
 	}

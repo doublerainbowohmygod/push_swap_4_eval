@@ -6,7 +6,7 @@
 /*   By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 20:30:00 by aoneil            #+#    #+#             */
-/*   Updated: 2025/11/15 15:19:03 by aoneil           ###   ########.fr       */
+/*   Updated: 2025/11/25 14:01:46 by aoneil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static char	*ft_newword(char const *s, size_t *i, char c)
 		(*i)++;
 		wordlen++;
 	}
-	/* Allocation is happening there */
 	newword = (char *)malloc(sizeof(char) * (wordlen + 1));
 	if (!newword)
 		return (NULL);

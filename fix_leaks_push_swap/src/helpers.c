@@ -6,33 +6,11 @@
 /*   By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 07:03:10 by aoneil            #+#    #+#             */
-/*   Updated: 2025/11/15 15:19:00 by aoneil           ###   ########.fr       */
+/*   Updated: 2025/11/25 13:28:30 by aoneil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*tmp;
-
-	current = *stack;
-	while (current != NULL)
-	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
-	}
-	*stack = NULL;
-}
-
-void	free_and_exit(t_stack **stack)
-{
-	free_stack(stack);
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 static t_stack	*find_last(t_stack *stack)
 {

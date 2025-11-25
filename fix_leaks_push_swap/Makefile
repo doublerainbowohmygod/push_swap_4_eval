@@ -6,7 +6,7 @@
 #    By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 15:56:09 by aoneil            #+#    #+#              #
-#    Updated: 2025/11/15 15:19:02 by aoneil           ###   ########.fr        #
+#    Updated: 2025/11/25 13:26:25 by aoneil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS		= \
 	$(LIBFTDIR)/ft_atol.c\
 	$(LIBFTDIR)/ft_putstr_fd.c\
 	$(LIBFTDIR)/ft_split_atom.c\
+	$(SRCDIR)/errors.c
 
 # Object files
 OBJS		= $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS))

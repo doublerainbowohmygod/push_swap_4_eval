@@ -6,7 +6,7 @@
 /*   By: aoneil <aoneil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:51:42 by aoneil            #+#    #+#             */
-/*   Updated: 2025/11/15 15:18:58 by aoneil           ###   ########.fr       */
+/*   Updated: 2025/11/25 14:01:23 by aoneil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,11 @@ static int	handle_single_arg(t_stack **stack_a, char *arg)
 	split_args = ft_split(arg, ' ');
 	if (!split_args || !split_args[0])
 	{
-		// if (split_args)
-		// 	free(split_args);
-		int len = 0;
-		while (split_args[len])
-		{
-			len++;
-		}
-		for (int i = 0; i < len; i++)
-			free(split_args[i]);
-		free(split_args);
+		free_split(split_args);
 		return (1);
 	}
-	printf("Checkpoint 1 \n");
-	parse_args(stack_a, split_args);
+	parse_args(stack_a, split_args, split_args);
+	free_split(split_args);
 	return (0);
 }
 
@@ -61,7 +52,7 @@ int	main(int ac, char **av)
 			return (1);
 	}
 	else
-		parse_args(&stack_a, av + 1);
+		parse_args(&stack_a, av + 1, NULL);
 	assign_index(stack_a);
 	if (!is_sorted(stack_a))
 		sort_stack(&stack_a, &stack_b);
